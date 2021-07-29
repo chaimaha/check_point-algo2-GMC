@@ -1,0 +1,35 @@
+ALGORITHM 
+VAR
+ n,i,j: INTEGER
+ set1[n],set2[n],sum:INTEGER
+   
+BEGIN
+//input size of arrays
+	Write("input the size of arrays");
+	Read(n);
+
+	//input value
+    FOR i FROM 0 TO n-1 STEP 1 DO
+        Write("input a value of set1");
+		Read(set1[i]);
+    END_FOR
+     FOR j FROM 0 TO n-1 STEP 1 DO
+        Write("input a value of set2");
+		Read(set2[j]);
+    END_FOR
+    //sum of common element
+	sum=0
+    FOR i FROM 0 TO n-1 STEP 1  DO
+       FOR j FROM 0 TO n-1 STEP 1  DO
+           IF (set1[i]==set2[j]) THEN
+               sum=sum+set2[j]
+           END_IF
+       END_FOR
+    END_FOR
+
+	Write("the sum of commun element =",sum);
+	
+    
+    
+END
+	

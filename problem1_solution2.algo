@@ -1,0 +1,58 @@
+ALGORITHM 
+VAR
+ VAR
+    i,count,sum,n,m:INTEGER;
+    set1,set2 : ARRAY_OF INTEGER[n];
+    set_keys : ARRAY_OF INTEGER[m];
+    dict := HASH_TABLE<INTEGER,INTEGER>;
+    
+BEGIN
+//input size of arrays
+	Write("input the size of arrays");
+	Read(n);
+
+	//input value
+    FOR i FROM 0 TO n-1 STEP 1 DO
+        Write("input a value of set1");
+		Read(set1[i]);
+    END_FOR
+     FOR j FROM 0 TO n-1 STEP 1 DO
+        Write("input a value of set2");
+		Read(set2[j]);
+    END_FOR
+    //insert set keys from set1
+    FOR i FROM 0 TO n-1 STEP 1 DO
+        set_keys[i]=set1[i]
+    END_FOR
+    //insert hash table from se1
+    FOR i FROM 0 TO n-1 STEP 1 DO
+        htab.insert(set_keys[i],1)
+    END_FOR
+    //insert hash_table from set2
+    FOR i FROM 0 TO n-1 STEP 1  DO
+         test:BOOLEAN:=false
+         FOR j FROM 0 TO n-1 STEP 1  DO
+           IF (set_keys[i]==set2[j]) THEN
+            htab.insert(set_keys[i],2)
+            test=true
+           END_IF
+           IF (test==false) THEN
+              htab.insert(set2[j])
+           END_IF
+         END_FOR
+    END_FOR
+    
+    //lookup for hash_table if the value is 1 then the element is unique 
+    // if the value is 2 then the element is commun element 
+     //get sum of distinct elements
+    set_keys := dict.getKeys();
+    FOR i FROM 0 TO set_keys.length -1 STEP 1  DO
+        IF (dict.get(set_keys[i]) = 2) THEN
+            sum := sum +set_keys[i];
+        END_IF
+    END_FOR
+        
+    END_FOR
+	
+
+	Write("the sum of commun element =",sum);

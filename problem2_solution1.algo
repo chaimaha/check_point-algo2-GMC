@@ -1,0 +1,53 @@
+
+ALGORITHM 
+VAR
+ n,i,j: INTEGER
+ set1[n],set2[n],sum:INTEGER
+ test:BOOLEAN;
+   
+BEGIN
+//input size of arrays
+	Write("input the size of arrays");
+	Read(n);
+
+	//input value
+    FOR i FROM 0 TO n-1 STEP 1 DO
+        Write("input a value of set1");
+		Read(set1[i]);
+    END_FOR
+     FOR j FROM 0 TO n-1 STEP 1 DO
+        Write("input a value of set2");
+		Read(set2[j]);
+    END_FOR
+    //sum of unique element
+    //add element from the first set 
+	sum=0
+    
+    FOR i FROM 0 TO n-1 DO
+        test:= FALSE;
+        FOR j FROM 0 TO set2.length-1 DO
+            IF(set1[i] = set2[j]) THEN
+                test:= TRUE;
+                BREAK;
+            END
+        END_FOR
+        IF (NOT test) THEN
+            sum := sum + set1[i];
+        END_IF
+    END_FOR
+
+    //add element from the second set. 
+    FOR i FROM 0 TO n-1 DO
+        test:= FALSE;
+        FOR j FROM 0 TO n-1 DO
+            IF(set2[i] = set1[j]) THEN
+                test := TRUE;
+                BREAK;
+            END
+        END_FOR
+        IF (NOT test THEN
+            sum := sum + set2[i];
+        END_IF
+    END_FOR
+
+	Write("the sum of commun element =",sum);
